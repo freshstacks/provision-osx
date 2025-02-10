@@ -14,7 +14,7 @@ if [[ "$(defaults read NSGlobalDomain "InitialKeyRepeat")" -ne 10 ]]; then
         defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false
         defaults write NSGlobalDomain "ApplePressAndHoldEnabled" -bool "false"
     else
-        echo "Skipping optimal vim key-repeaat settings"
+        echo "Skipping optimal vim key-repeat settings"
     fi
 else
     echo "* optimal vim key-repeat settings already set"
@@ -65,29 +65,6 @@ if ! command -v /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome >
     fi
 else
     echo "* Chrome browser is already installed"
-fi
-
-if command -v "brew" >/dev/null 2>&1; then
-    if ! command -v "aws" >/dev/null 2>&1; then
-        read -p "Install aws-cli?: (y/N) " confirm
-        if [ "$confirm" = "y" ]; then
-            brew install awscli
-        else
-            echo "* Skipping aws-cli install"
-        fi
-    else
-        echo "* aws-cli is already installed"
-    fi
-    if ! command -v "sam" >/dev/null 2>&1; then
-        read -p "Install aws-sam-cli?: (y/N) " confirm
-        if [ "$confirm" = "y" ]; then
-            brew install aws-sam-cli
-        else
-            echo "* Skipping aws-sam-cli install"
-        fi
-    else
-        echo "* aws-sam-cli is already installed"
-    fi
 fi
 
 shelladditionspath="$root/shell-additions"
